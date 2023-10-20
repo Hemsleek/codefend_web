@@ -1,3 +1,8 @@
+import { TypeAnimation } from "react-type-animation";
+import { services } from "../../constantData";
+import { motion } from "framer-motion";
+import { heroVariants } from "../../constantData/animationData";
+
 const Hero = () => {
   return (
     <section className="hero">
@@ -17,15 +22,39 @@ const Hero = () => {
         </div>
         <div className="content">
           <div className="copy">
-            <h1>intel meets protection</h1>
-            <p>
-              We provide <b>advanced information security services</b> to
-              prevent business continuity disruption, reputational and monetary
-              loss. To make this possible we employ a multifaceted approach that
-              encompasses custom software and hardware, proactive threat
-              monitoring, and a team of skilled experts, including researchers
-              and informants.
-            </p>
+            <motion.h1
+              variants={heroVariants}
+              initial="hidden"
+              animate="visible"
+              transition={{
+                duration: 5,
+                delay: 0.3,
+                ease: [0.5, 0.71, 1, 1.5],
+              }}
+              whileHover={{ scale: 1.2 }}
+            >
+              intel meets protection
+            </motion.h1>
+            <div className="flex flex-row flex-wrap">
+              <span className="pr-2">We provide</span>
+              <TypeAnimation
+                sequence={services}
+                style={{
+                  fontSize: "1rem",
+                  // fontWeight: "bold",
+                }}
+                wrapper="b"
+                deletionSpeed={80}
+                repeat={Infinity}
+              />
+              <p>
+                to prevent business continuity disruption, reputational and
+                monetary loss. To make this possible we employ a multifaceted
+                approach that encompasses custom software and hardware,
+                proactive threat monitoring, and a team of skilled experts,
+                including researchers and informants.
+              </p>
+            </div>
           </div>
           <div className="image">
             <img src="/images/hacker.png" alt="" />

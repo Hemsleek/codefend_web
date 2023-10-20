@@ -1,9 +1,22 @@
 /* eslint-disable no-irregular-whitespace */
+import { motion } from "framer-motion";
+import {
+  contactVariant,
+  servicesVariant,
+} from "../../constantData/animationData";
 
 const Services = () => {
   return (
-    <section className="our-services">
-      <div className="container">
+    <section className="our-services ">
+      <motion.div
+        variants={servicesVariant}
+        initial="hidden"
+        whileInView="visible"
+        transition={{
+          duration: 1,
+        }}
+        className="container"
+      >
         <div className="copy">
           <h2>our services</h2>
           <p>
@@ -102,10 +115,18 @@ const Services = () => {
             <div className="line"></div>
           </div>
         </div>
-      </div>
+      </motion.div>
       <div className="contact" id="contact">
         <div className="container">
-          <div className="copy">
+          <motion.div
+            variants={contactVariant}
+            initial="hidden"
+            whileInView="visible"
+            transition={{
+              duration: 1,
+            }}
+            className="copy"
+          >
             <h2>contact</h2>
             <p>
               <b>business partners and alliances</b>
@@ -115,7 +136,7 @@ const Services = () => {
               tailored assistance your business requires. Please do not attempt
               to harm our business teams.
             </p>
-          </div>
+          </motion.div>
           <div className="contacts">
             <div className="item">
               <img src="/images/contact1.png" alt="" />

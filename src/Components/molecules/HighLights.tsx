@@ -1,9 +1,20 @@
-import React from "react";
+import { motion } from "framer-motion";
+import { marqueeVariants } from "../../constantData/animationData";
 
 const HighLights = () => {
   return (
     <section className="highlights">
-      <div className="container">
+      <motion.div
+        variants={marqueeVariants}
+        animate="visible"
+        initial="hidden"
+        className="container"
+        transition={{
+          duration: 15,
+          repeat: Infinity,
+          repeatType: "loop",
+        }}
+      >
         <ul>
           <li style={{ paddingLeft: "0px" }}>
             <h2>threat intel & research</h2>
@@ -33,7 +44,7 @@ const HighLights = () => {
             </p>
           </li>
         </ul>
-      </div>
+      </motion.div>
     </section>
   );
 };
